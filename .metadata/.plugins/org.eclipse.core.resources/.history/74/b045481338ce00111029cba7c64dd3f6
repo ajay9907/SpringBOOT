@@ -1,0 +1,11 @@
+package com.Spring_Boot_API.API_Creation;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class API_Creation_Old_way {
+
+	public String HomePage() {
+		return "It is an Home P";
+	}
+}

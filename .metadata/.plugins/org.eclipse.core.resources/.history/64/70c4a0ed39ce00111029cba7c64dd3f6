@@ -1,0 +1,23 @@
+package com.Spring_Boot_API.API_Creation;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@ResponseBody
+public class API_Creation_Old_way {
+
+	@RequestMapping(value = "/homePage", method = RequestMethod.GET)
+
+	public String HomePage() {
+		return "....It is an Home Page ...!";
+	}
+
+	@RequestMapping(value = "/Register", method = RequestMethod.GET)
+	public void Registration() {
+		System.out.println("Registration Successfull....!");
+	}
+
+}
