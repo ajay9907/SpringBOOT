@@ -1,0 +1,18 @@
+package com.Spring_Boot_API.API_Creation;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class API_Creation {
+@PostMapping("/register")
+	public String registerApi() {
+		return " It is an Register Page...!";
+	}
+@PostMapping("/")
+	public String LoginAPI() {
+		return null;
+
+	}
+
+}

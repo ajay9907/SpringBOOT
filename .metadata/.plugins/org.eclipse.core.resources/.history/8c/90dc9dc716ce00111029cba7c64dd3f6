@@ -1,0 +1,11 @@
+package com.Spring_Boot_API.API_Creation;
+
+import org.springframework.web.bind.annotation.RestController;
+
+public class API_Creation {
+@RestController
+	public String registerApi() {
+		return " It is an Register Page...!";
+	}
+
+}

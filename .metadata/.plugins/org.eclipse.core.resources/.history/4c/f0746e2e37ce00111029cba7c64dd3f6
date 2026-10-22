@@ -1,0 +1,35 @@
+package com.Spring_Boot_API.API_Creation;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class API_Creation {
+	@PostMapping("/register")
+	public String registerApi() {
+		return " It is an Register Page...!";
+	}
+
+	@PostMapping("/loginAPI")
+	public String loginAPI() {
+		return "Login Page ...!";
+
+	}
+
+	@PutMapping("/homePage")
+	public String homePage() {
+		return "It is an Home Page...!";
+	}
+
+	@DeleteMapping("/paymentAPI")
+	public String Payment() {
+		return "Payment ...!";
+	}
+
+	@
+	public void BookingAPI() {
+		System.out.println("Booking..!");
+	}
+}
