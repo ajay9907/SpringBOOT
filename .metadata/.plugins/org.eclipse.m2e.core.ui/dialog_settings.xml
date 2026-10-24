@@ -26,6 +26,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\java workspace\SpringInitializer.io\SpringDB_Connection"/>
 			<item value="C:\java workspace\SpringInitializer.io\API_Creation"/>
 			<item value="C:\java workspace\SpringInitializer.io"/>
 		</list>
