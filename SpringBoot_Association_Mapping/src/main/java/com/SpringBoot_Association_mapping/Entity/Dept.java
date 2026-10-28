@@ -5,8 +5,10 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Dept {
+
 	@Id
 	private int deptid;
+
 	private String name;
 
 	public Dept() {
@@ -14,7 +16,6 @@ public class Dept {
 	}
 
 	public Dept(int deptid, String name) {
-		super();
 		this.deptid = deptid;
 		this.name = name;
 	}
@@ -39,5 +40,4 @@ public class Dept {
 	public String toString() {
 		return "Dept [deptid=" + deptid + ", name=" + name + "]";
 	}
-
 }

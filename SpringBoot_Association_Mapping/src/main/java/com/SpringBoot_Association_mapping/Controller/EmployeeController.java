@@ -1,6 +1,10 @@
 package com.SpringBoot_Association_mapping.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,18 +18,35 @@ import com.SpringBoot_Association_mapping.Service.EmployeeService;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService service;
+	private EmployeeService service;
 
+	// inserting data
 	@PostMapping("/employee/insert")
-	public String insertData(@RequestBody Employee e) {
-		String msg = service.insertData(e);
-		return msg;
+	public String insertData(@RequestBody Employee emp) {
+		return service.insertData(emp);
 	}
 
+	// retriving data
+	@GetMapping("/employee")
+	public List<Employee> getAllData() {
+		return service.getAllData();
+	}
+
+	// retrive particular
+	@GetMapping("/employee/{id}")
+	public Employee getDataById(@PathVariable int id) {
+		return service.getDataById(id);
+	}
+
+	// updating data
 	@PutMapping("/employee/update/{id}")
 	public String updateData(@RequestBody Employee emp, @PathVariable int id) {
-		String msg = service.updateData(emp, id);
-		return msg;
+		return service.updateData(emp, id);
+	}
 
+	// deleting data
+	@DeleteMapping("/employee/delete/{id}")
+	public String deleteData(@PathVariable int id) {
+		return service.deleteData(id);
 	}
 }

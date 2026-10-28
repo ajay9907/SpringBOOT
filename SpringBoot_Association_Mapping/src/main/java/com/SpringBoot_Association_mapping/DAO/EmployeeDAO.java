@@ -1,5 +1,7 @@
 package com.SpringBoot_Association_mapping.DAO;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,36 +13,74 @@ import com.SpringBoot_Association_mapping.Entity.Employee;
 
 @Repository
 public class EmployeeDAO {
-	@Autowired
-	SessionFactory factory;
 
-	public String insertData(Dept dept) {
+	@Autowired
+	private SessionFactory factory;
+
+	public String insertData(Employee emp) {
 		Session s = factory.openSession();
 		Transaction tr = s.beginTransaction();
 
-		s.persist(dept);
+		Dept dept = s.get(Dept.class, emp.getDept().getDeptid());
+
+		emp.setDept(dept);
+		s.persist(emp);
 
 		tr.commit();
 		s.close();
 
-		return "Inserting Data into Employee...!";
+		return "Employee Inserted Successfully!";
 	}
 
-	public String updateData(Dept dpt, int id) {
+	// we need list because we retrive all data in array of object form
+	public List<Employee> getAllData() {
+		Session s = factory.openSession();
 
-		Session ss = factory.openSession();
-		Transaction tr = ss.beginTransaction();
+		List<Employee> list = s.createQuery("from Employee", Employee.class).getResultList();
 
-		Dept d = ss.get(Dept.class, id);
+		s.close();
+		return list;
+	}
 
-		d.setDeptid(dpt.getDeptid());
-		d.setName(dpt.getName());
+	public Employee getDataById(int id) {
+		Session s = factory.openSession();
 
-		ss.merge(d);
-		
+		Employee emp = s.get(Employee.class, id);
+
+		s.close();
+		return emp;
+	}
+
+	public String updateData(Employee emp, int id) {
+		Session s = factory.openSession();
+		Transaction tr = s.beginTransaction();
+
+		Employee e = s.get(Employee.class, id);
+
+		e.setName(emp.getName());
+		e.setAge(emp.getAge());
+
+		Dept dept = s.get(Dept.class, emp.getDept().getDeptid());
+
+		e.setDept(dept);
+
 		tr.commit();
-		ss.close();
+		s.close();
 
-		return "Data Updated Successfully...!";
+		return "Employee Updated Successfully!";
+	}
+
+	// DELETE
+	public String deleteData(int id) {
+		Session s = factory.openSession();
+		Transaction tr = s.beginTransaction();
+
+		Employee emp = s.get(Employee.class, id);
+		s.remove(emp);
+
+		tr.commit();
+		s.close();
+
+		return "Employee Deleted Successfully!";
 	}
 }

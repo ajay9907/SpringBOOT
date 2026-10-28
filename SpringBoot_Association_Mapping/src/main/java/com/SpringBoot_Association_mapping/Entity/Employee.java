@@ -5,26 +5,30 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Employee {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	@Column(nullable = false, length = 66)
 	private String name;
+
 	private int age;
 
 	@ManyToOne
-	Dept dept;
+	@JoinColumn(name = "deptid")
+	private Dept dept;
 
 	public Employee() {
 		super();
 	}
 
 	public Employee(String name, int age, Dept dept) {
-		super();
 		this.name = name;
 		this.age = age;
 		this.dept = dept;
@@ -66,5 +70,4 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", dept=" + dept + "]";
 	}
-
 }
