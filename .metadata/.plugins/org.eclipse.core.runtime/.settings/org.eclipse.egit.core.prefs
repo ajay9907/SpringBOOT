@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=C\:\\java workspace\\SpringBOOT\\.git;
-GitRepositoriesView.GitDirectories.relative=.git;
+GitRepositoriesView.GitDirectories=C\:\\java workspace\\SpringBOOT\\.git;C\:\\java workspace\\SAMSTRACK_PROJECT\\SAMSTRACK_API\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;C\:\\java workspace\\SAMSTRACK_PROJECT\\SAMSTRACK_API\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
