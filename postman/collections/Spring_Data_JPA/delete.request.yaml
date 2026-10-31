@@ -1,4 +1,5 @@
 $kind: http-request
 url: ""
 method: GET
+examples: .resources/delete.resources/examples
 order: 1000
